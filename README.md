@@ -1,31 +1,19 @@
-# Pokemon Card Monitor Bot
-
-## 概要
+# Pokemon Card Monitor Bot (Email版)
 
 13の通販サイトを5分おきに巡回し、ポケモンカードの「抽選」「予約」情報を検出したら
-- LINE Notifyに通知
+- Gmail経由でメール通知
 - Googleカレンダーに予定追加
 
-を行う自動Botです。
+## 設定方法
 
-## セットアップ手順
+### 1. Secrets に登録（Settings > Secrets and variables > Actions）
 
-### 1. GitHubにこのリポジトリをインポート
+- EMAIL_ADDRESS：Gmailアドレス
+- EMAIL_PASSWORD：アプリパスワード（16桁）
+- EMAIL_TO_ADDRESS：通知を受け取りたいメールアドレス
 
-このリポジトリをテンプレートとして「Use this template」から自分のアカウントに作成。
+### 2. Googleカレンダー連携
 
-### 2. Secrets に登録する情報
-
-GitHub上で以下を登録します：
-
-- `LINE_TOKEN`：LINE Notifyのアクセストークン
-
-### 3. Googleカレンダー連携の初回設定
-
-1回目の実行時に、以下のファイルを手動で用意してください：
-
-- `credentials.json`：Google APIで取得（デスクトップアプリ用）
-- 実行時に認証画面が開き、`token.pickle`が自動生成されます
-
-以降は自動実行されます。
+- credentials.json を用意（デスクトップアプリ用 OAuth）
+- 最初の実行時に認証が走ります（token.pickleが生成される）
 
