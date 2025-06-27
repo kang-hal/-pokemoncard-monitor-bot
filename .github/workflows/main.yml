@@ -29,5 +29,3 @@ jobs:
           EMAIL_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           EMAIL_TO_ADDRESS: ${{ secrets.SMTP_USER }}
         run: python main.py
-
-
