@@ -2,7 +2,7 @@ name: Monitor Bot
 
 on:
   schedule:
-    - cron: '*/30 * * * *'  # 毎時30分おき（必要なら変更可）
+    - cron: '*/30 * * * *'  # 毎時30分おき
   workflow_dispatch:
 
 jobs:
@@ -24,4 +24,10 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run main script
+        env:
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
         run: python main.py
+
