@@ -1,3 +1,7 @@
+import os
+print("EMAIL_ADDRESS:", os.getenv("EMAIL_ADDRESS"))
+print("EMAIL_PASSWORD:", os.getenv("EMAIL_PASSWORD"))
+print("EMAIL_TO_ADDRESS:", os.getenv("EMAIL_TO_ADDRESS"))
 from config import MONITOR_URLS, KEYWORDS
 from calendar_utils import add_to_calendar
 from email_notify import send_email_notify
