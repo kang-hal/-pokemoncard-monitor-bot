@@ -1,11 +1,4 @@
-import os
-import requests  # ← ここで先に import
-print("EMAIL_ADDRESS:", os.getenv("EMAIL_ADDRESS"))
-print("EMAIL_PASSWORD:", os.getenv("EMAIL_PASSWORD"))
-print("EMAIL_TO_ADDRESS:", os.getenv("EMAIL_TO_ADDRESS"))
-from config import MONITOR_URLS, KEYWORDS
-from calendar_utils import add_to_calendar
-from email_notify import send_email_notify
+import requests
 
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0 Safari/537.36"
@@ -22,7 +15,4 @@ def check_sites():
                     send_email_notify("ポケカ通知", message)
                     add_to_calendar(name, url)
         except Exception as e:
-            send_email_notify("ポケカBotエラー", f"[{name}] エラー: {e}")
-
-if __name__ == "__main__":
-    check_sites()
+            print(f"[{name}] エラー: {e}")
